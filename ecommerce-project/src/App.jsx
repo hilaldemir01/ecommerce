@@ -9,15 +9,15 @@ import './App.css'
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [products, setProducts] = useState([]);
+ // const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/products")
+  /*  axios.get("/api/products")
     .then((response) => {
       setProducts(response.data);
-    });
+    });*/
 
-    axios.get("/api/cart-items")
+    axios.get("/api/cart-items?expand=product")
     .then((response) => {
       setCart(response.data);
     });

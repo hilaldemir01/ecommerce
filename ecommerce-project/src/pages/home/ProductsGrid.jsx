@@ -1,32 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import "./HomePage.css";
-import { Header } from "../components/Header";
-import { formatMoney } from "./utils/money";
+import { formatMoney } from "../utils/money";
+export function ProductsGrid({ products }) {
 
-export function HomePage({ cart}) {
-  const [products, setProducts] = useState([]);
-  const [setCart] = useState([]);
-
-  useEffect(() => {
-    axios.get("/api/products").then((response) => {
-      setProducts(response.data);
-    });
-
-    axios.get("/api/cart-items").then((response) => {
-      setCart(response.data);
-    });
-  }, [setCart]);
 
   return (
-    <>
-      <title>Ecommerce Project</title>
-      <Header cart={cart} />
-      <div className="home-page">
-        <div className="products-grid">
-          {products.map((product) => {
-            return (
-              <div key={product.id} className="product-container">
+    <div className="products-grid">
+      {products.map((product) => {
+        return (
+          <div key={product.id} className="product-container">
                 <div className="product-image-container">
                   <img className="product-image" src={product.image} />
                 </div>
@@ -80,7 +60,5 @@ export function HomePage({ cart}) {
             );
           })}
         </div>
-      </div>
-    </>
-  );
+    )
 }

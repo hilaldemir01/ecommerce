@@ -16,7 +16,7 @@ export function HomePage({ cart}) {
     axios.get("/api/cart-items").then((response) => {
       setCart(response.data);
     });
-  }, []);
+  }, [setCart]);
 
   return (
     <>

@@ -2,6 +2,7 @@ import "./OrdersPage.css";
 import { Header } from "../../components/Header";
 import axios from "axios";
 import { useEffect, useState, Fragment } from "react";
+import { OrdersGrid } from "./OrdersGrid";
 export function OrdersPage({ cart }) {
   const [orders, setOrders] = useState([]);
 
